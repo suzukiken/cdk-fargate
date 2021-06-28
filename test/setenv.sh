@@ -1,0 +1,1 @@
+export BUCKET_NAME=cdkfargatestoragestack-bucket83908e77-1wsgwxi2ss52t
