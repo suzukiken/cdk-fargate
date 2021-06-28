@@ -34,7 +34,7 @@ export class CdkFargateStack extends cdk.Stack {
       subnetSelection: {
         subnetType: ec2.SubnetType.PUBLIC
       },
-      schedule: events.Schedule.expression('cron(40 6 * * ? *)'),
+      schedule: events.Schedule.expression('cron(0 11 * * ? *)'),
       platformVersion: ecs.FargatePlatformVersion.LATEST,
     })
     
