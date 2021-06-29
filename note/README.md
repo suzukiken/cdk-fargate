@@ -16,18 +16,18 @@ update = "2021-06-29"
 
 このリポジトリの構成はこのようになっている
 
-* [Dockerfile](docker/Dockerfile)
-* [Dockerで動くPythonのスクリプト](docker/script.py)
-* [Pythonのスクリプトが読み書きするS3 Bucket](lib/cdk-fargate-storage-stack.ts)
-* [Pythonのスクリプトが読み書きするS3 BucketにCDKのdeploy時に置かれるファイル](sample)
-* [ECR Repository](lib/cdk-fargate-repo-stack.ts)
-* [Scheduled Fargete Task](lib/cdk-fargate-stack.ts)
+* [Dockerfile](../docker/Dockerfile)
+* [Dockerで動くPythonのスクリプト](../docker/script.py)
+* [Pythonのスクリプトが読み書きするS3 Bucket](../lib/cdk-fargate-storage-stack.ts)
+* [Pythonのスクリプトが読み書きするS3 BucketにCDKのdeploy時に置かれるファイル](../sample)
+* [ECR Repository](../lib/cdk-fargate-repo-stack.ts)
+* [Scheduled Fargete Task](../lib/cdk-fargate-stack.ts)
 
 メモ
 
-* この処理をするためにコンテナにはS3バケットへのアクセス権限を付与している。
-* 毎日日本時間の20時に起動するようにしている。
-* 未確認だけど未指定の場合CDKはECSクラスタをVPCのプライベートのサブネットに置こうとするようで、自分の場合プライベートなサブネットを用意していなかったのでそのままではデプロイできず、パブリックのサブネットに置くように指定した。
+* この処理をするためにコンテナには[S3バケットへのアクセス権限を付与している](https://github.com/suzukiken/cdk-fargate/blob/711f92bb1ffef2e0220fff166e6c92f678707a3b/lib/cdk-fargate-stack.ts#L41)。
+* 毎日日本時間の[20時に起動](https://github.com/suzukiken/cdk-fargate/blob/711f92bb1ffef2e0220fff166e6c92f678707a3b/lib/cdk-fargate-stack.ts#L37)するようにしている。
+* 未確認だけど未指定の場合CDKはECSクラスタをVPCのプライベートのサブネットに置こうとするようで、自分の場合プライベートなサブネットを用意していなかったのでそのままではデプロイできず、[パブリックのサブネットに置くように指定](https://github.com/suzukiken/cdk-fargate/blob/711f92bb1ffef2e0220fff166e6c92f678707a3b/lib/cdk-fargate-stack.ts#L34-L36)した。
 * 一切の設定をしないでもCloudWatchにDockerのログが残るのが便利（DockerイメージはAmazonlinux2をベースにしているためか、それともDebianなどでもそうなのか未確認）
 
 こうした定期実行のFargateを作るCDKのコードは簡潔だった。Dockerを作ってECRに置いて、という作業が面倒ではあるけれど全体の仕組みは把握しやすくて手軽に使えると思った。
