@@ -22,6 +22,7 @@ update = "2021-06-29"
 * [Pythonのスクリプトが読み書きするS3 BucketにCDKのdeploy時に置かれるファイル](../sample)
 * [ECR Repository](../lib/cdk-fargate-repo-stack.ts)
 * [Scheduled Fargete Task](../lib/cdk-fargate-stack.ts)
+* ECSで利用する既存のVPCのidやname、このCDKで作成するECRのRepository名、S3のBucket名は[cdk.json](../cdk.json)で指定するようにしている。
 
 メモ
 
