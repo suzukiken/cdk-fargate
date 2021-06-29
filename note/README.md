@@ -22,10 +22,10 @@ update = "2021-06-29"
 * [Pythonのスクリプトが読み書きするS3 BucketにCDKのdeploy時に置かれるファイル](../sample)
 * [ECR Repository](../lib/cdk-fargate-repo-stack.ts)
 * [Scheduled Fargete Task](../lib/cdk-fargate-stack.ts)
-* ECSで利用する既存のVPCのidやname、このCDKで作成するECRのRepository名、S3のBucket名は[cdk.json](../cdk.json)で指定するようにしている。
 
 メモ
 
+* ECSで利用する既存のVPCのidやname、このCDKで作成するECRのRepository名、S3のBucket名は[cdk.json](../cdk.json)で指定するようにしている。
 * この処理をするためにコンテナには[S3バケットへのアクセス権限を付与している](https://github.com/suzukiken/cdk-fargate/blob/711f92bb1ffef2e0220fff166e6c92f678707a3b/lib/cdk-fargate-stack.ts#L41)。
 * 毎日日本時間の[20時に起動](https://github.com/suzukiken/cdk-fargate/blob/711f92bb1ffef2e0220fff166e6c92f678707a3b/lib/cdk-fargate-stack.ts#L37)するようにしている。
 * 未確認だけど未指定の場合CDKはECSクラスタをVPCのプライベートのサブネットに置こうとするようで、自分の場合プライベートなサブネットを用意していなかったのでそのままではデプロイできず、[パブリックのサブネットに置くように指定](https://github.com/suzukiken/cdk-fargate/blob/711f92bb1ffef2e0220fff166e6c92f678707a3b/lib/cdk-fargate-stack.ts#L34-L36)した。
