@@ -1,5 +1,5 @@
 +++
-title = "Scheduled Farget Task"
+title = "Scheduled Fargate Task"
 category = "Farget"
 tags = ["Farget", "ECR", "Docker"]
 date = "2021-06-28"
