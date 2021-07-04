@@ -1,7 +1,7 @@
 +++
 title = "Scheduled Fargate Task"
-category = "Farget"
-tags = ["Farget", "ECR", "Docker"]
+category = "Fargate"
+tags = ["Fargate", "ECR", "Docker"]
 date = "2021-06-28"
 update = "2021-06-29"
 +++
