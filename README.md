@@ -1,6 +1,6 @@
 Example CDK Project
 
-## 
+## Resources to be created
 
 * Dockerfile: To create ECR docker image (docker/Dockerfile)
     * Python Script: Run in the Docker container (docker/script.py)
